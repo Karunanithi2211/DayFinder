@@ -1,0 +1,83 @@
+<html>
+<head>
+    <title>DayFinder</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dayfinder.css' %}">
+</head>
+<body style="background-color: rgba(11, 9, 9, 0.726);">
+    <nav class="navbar navbar-inverse navbar-fixed-top color">
+        <div class="container">
+            <h1 style="color: gray;">Day FinDer</h1>
+        </div>
+    </nav>
+    <div class="container-fluid home">
+        <div class="col-md-offset-4 col-md-4">
+            <h1 class="text-primary text-center page-header">Enter Details</h1>
+            <h6 class="text-center" style="color: white;">The page is did some mathematics calucluations to find the day</h6>
+            <h6 class="text-center" style="color: white;">user can give any kind of date, its for learning purpose only</h6>
+        </div>
+        <div class="col-md-offset-4 col-md-4 well">
+            <form action="dayfind" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                  <label class="form-label">Date</label><br>
+                  <select id="date" name="date">
+                    <option value="1" selected>1</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Month</label><br>
+                    <select id="month" name="month">
+                      <option value="jan" selected>January</option>
+                      <option value="feb">February</option>
+                      <option value="mar">March</option>
+                      <option value="apr">April</option>
+                      <option value="may">May</option>
+                      <option value="june">June</option>
+                      <option value="july">July</option>
+                      <option value="aug">August</option>
+                      <option value="sep">September</option>
+                      <option value="oct">October</option>
+                      <option value="nov">November</option>
+                      <option value="dec">December</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Year</label><br>
+                    <select id="year" name="year">
+                        <option value="1600" selected>1600</option>
+                    </select>
+                </div>
+                <center>
+                    <button type="submit" class="btn btn-primary">FindDay</button>
+                </center>
+            </form>
+            <div>
+                <center>
+                    <h5>{{message}}</h5>
+                    <h1 class="day">{{day}}</h1>   
+                </center>
+            </div>
+        </div>
+    </div>
+    <script>
+        var dateSelect = document.getElementById("date");
+        var yearSelect = document.getElementById("year");
+    
+        for(var date = 2; date <= 31; date++){
+            var option = document.createElement("option")
+            option.text = date;
+            option.value = date;
+            dateSelect.appendChild(option);
+        }
+
+        for (var year = 1603; year < 2100; year++) {
+            var option = document.createElement("option");
+            option.text = year;
+            option.value = year;
+            yearSelect.appendChild(option);
+        }
+    </script>
+</body>
+</html>

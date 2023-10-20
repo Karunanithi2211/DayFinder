@@ -1,0 +1,3 @@
+res = {'coord': {'lon': 79.7167, 'lat': 12.8333}, 'weather': [{'id': 803, 'main': 'Clouds', 'description': 'broken clouds', 'icon': '04d'}], 'base': 'stations', 'main': {'temp': 33.28, 'feels_like': 37.8, 'temp_min': 33.28, 'temp_max': 33.28, 'pressure': 1008, 'humidity': 53, 'sea_level': 1008, 'grnd_level': 999}, 'visibility': 10000, 'wind': {'speed': 0.85, 'deg': 177, 'gust': 1.12}, 'clouds': {'all': 77}, 'dt': 1696843710, 'sys': {'country': 'IN', 'sunrise': 1696811433, 'sunset': 1696854379}, 'timezone': 19800, 'id': 1268159, 'name': 'Kanchipuram', 'cod': 200}
+data = res['main']['temp']
+print(data)
